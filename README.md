@@ -87,6 +87,10 @@ Execute the next command to see the results:
 
     mvn test
 
+![JUnit Result](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/MVNJunitResults.png)
+
+Or in eclipse:
+
 ![JUnit Result](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/JUnitResults.png)
 ### Curl
 **Some Scenarios:**
@@ -121,4 +125,5 @@ curl -i --data \
 Inside the subfolder postman you will be find a Postman Collection to import and execute:
 
 ![Postman Collection](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/Collection-Postman.png)
+
 
