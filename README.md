@@ -65,11 +65,20 @@ Set your environment variables with the next commands:
     
 	$ export AWS_ACCESS_KEY_ID="youraccesskey"
 	$ export AWS_SECRET_ACCESS_KEY="yoursecretkey"
-	$ export AWS_DEFAULT_REGION="us-west-2"
+	$ export AWS_DEFAULT_REGION="us-east-1"
 	
-Deploy de application to Amazon Web Services using the file scalable-web.tf provided with the next command:
+Change into the *terraform* subfolder and deploy de application to Amazon Web Services using the files *.tf provided with the next command:
 
+    $ terraform init
+    $ terraform plan
     $ terraform apply
+
+You will have to type "**yes**" to allow the creation and when finish the output will be the public IP:
+
+![Terraform Output](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/TerraformOutput.png)
+
+Then you can use that IP to point your browser or your test:
+![Terraform Output](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/AWSSwagger.png)
 
 ## How to test
 This application exposes the next endpoints to test:
@@ -125,5 +134,3 @@ curl -i --data \
 Inside the subfolder postman you will be find a Postman Collection to import and execute:
 
 ![Postman Collection](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/Collection-Postman.png)
-
-
