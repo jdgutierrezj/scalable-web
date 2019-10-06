@@ -49,4 +49,8 @@ resource "aws_instance" "waes_jgu" {
        							   	mvn clean install
        							   	java -jar target/scalable-web-1.0.0.jar -Dspring.profiles.active=prod
        							   EOT
+    
+    tags = {
+    	Name = WaesServer
+    }       							   
 }
