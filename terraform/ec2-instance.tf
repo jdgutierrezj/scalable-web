@@ -57,15 +57,7 @@ resource "aws_instance" "waes_jgu" {
 	instance_type               = "t2.micro"
 	vpc_security_group_ids      = ["${aws_security_group.allow_8080_22.id}"]
 	key_name					= "jgu-keypair"
-	user_data					= <<EOT
-									#!/bin/bash -x
-								   	yum update -y
-								   	yum install -y java-1.8.0-openjdk.x86_64 apache-maven git
-								   	git clone https://github.com/jdgutierrezj/scalable-web.git
-								   	cd scalable-web
-       							   	mvn clean install
-       							   	java -jar target/scalable-web-1.0.0.jar -Dspring.profiles.active=prod
-       							   EOT
+	user_data   		    = "${file("install_scalable_web.sh")}"
     
     tags = {
     	Name = "WaesServer"
