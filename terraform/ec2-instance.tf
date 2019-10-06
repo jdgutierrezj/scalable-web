@@ -45,12 +45,11 @@ resource "aws_security_group" "allow_8080_22" {
 }
 
 resource "aws_instance" "waes_jgu" {
-	ami                         = "${data.aws_ami.amazon-linux-2.id}"
-	associate_public_ip_address = true
-	instance_type               = "t2.micro"
-	vpc_security_group_ids      = ["${aws_security_group.allow_8080_22.id}"]
-	key_name					= "jgu-keypair"
-	user_data   		    	= "${file("install_scalable_web.sh")}"
+	ami							= "${data.aws_ami.amazon-linux-2.id}"
+	associate_public_ip_address	= true
+	instance_type				= "t2.micro"
+	vpc_security_group_ids		= ["${aws_security_group.allow_8080_22.id}"]
+	user_data					= "${file("install_scalable_web.sh")}"
     
     tags = {
     	Name = "WaesServer"
