@@ -63,6 +63,7 @@ Deploy de application to Amazon Web Services using the file scalable-web.tf prov
 
 ## How to test
 This application exposes the next endpoints to test:
+
 |URL  |HTTP Method  |Description  |
 |--|--|--|
 |/v1/diff/{id}/left  |POST  |Receives a payload in JSON format with the attribute base64Data which has to contain a valid base64 sequence, also it's important to note that this endpoint is only allowed to invoque once with the same transaction **id** by design decision |
