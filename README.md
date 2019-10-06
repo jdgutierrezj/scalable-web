@@ -82,7 +82,9 @@ Please choose the option more suitable for you:
 Execute the next command to see the results:
 
     mvn test
+Inside the subfolder postman you will be find a Postman Collection to import and execute:
 
+![JUnit Result](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/JUnitResult.png)
 ### Curl
 **Some Scenarios:**
 
@@ -116,4 +118,3 @@ curl -i --data \
 Inside the subfolder postman you will be find a Postman Collection to import and execute:
 
 ![Postman Collection](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/Collection-Postman.png)
-
