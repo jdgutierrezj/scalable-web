@@ -61,7 +61,7 @@ public class DiffControllerUnitTest {
 	private final String base64invalid = "U1i6uxLR209g4fZyR G0rQ1RqKY0fR3x2PdYcdCAu";
     
     @Test
-    public void when_sequence_is_invalid() throws Exception {
+    public void when_sequence_is_invalid_thenStatus422() throws Exception {
     	
 		String id = String.valueOf(ThreadLocalRandom.current().nextInt(1, 1000));
 		
@@ -77,7 +77,7 @@ public class DiffControllerUnitTest {
     }	
 	
     @Test
-    public void when_left_exists() throws Exception {
+    public void when_left_exists_thenStatus422() throws Exception {
     	
 		String id = String.valueOf(ThreadLocalRandom.current().nextInt(1, 1000));
 		
@@ -93,7 +93,7 @@ public class DiffControllerUnitTest {
     }
     
     @Test
-    public void when_right_exists() throws Exception {
+    public void when_right_exists_thenStatus422() throws Exception {
     	
 		String id = String.valueOf(ThreadLocalRandom.current().nextInt(1, 1000));
 		
