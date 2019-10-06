@@ -1,8 +1,12 @@
 # Scalable Web Assignment!
 
 This is a REST API built with Spring Boot to solve the assignment for Java Developer on WAES
-## Architecture
+## Design
+According to the requirement, this API exposes 3 endpoints which are explained in the table below. I took these design decisions:
 
+ - Each one of the endpoints that receives data just can be invoqued one per  **id**, the next invocation with the same **id** will throw an ***InmutableDataException*** which is translated by spring to a HTTP BadRequest (422) response
+ - I am using a validation with [Base64.Decoder](https://docs.oracle.com/javase/8/docs/api/java/util/Base64.Decoder.html#decode-java.lang.String-) hence the string passed has to be valid
+ - I am assuming that the string is binary content so I just calculated string differences by using the java version of [this](https://github.com/google/diff-match-patch) library
 
 ## Stack
 
@@ -82,9 +86,12 @@ Please choose the option more suitable for you:
 Execute the next command to see the results:
 
     mvn test
-Inside the subfolder postman you will be find a Postman Collection to import and execute:
 
-![JUnit Result](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/JUnitResult.png)
+![JUnit Result](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/MVNJunitResults.png)
+
+Or in eclipse:
+
+![JUnit Result](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/JUnitResults.png)
 ### Curl
 **Some Scenarios:**
 
@@ -118,3 +125,5 @@ curl -i --data \
 Inside the subfolder postman you will be find a Postman Collection to import and execute:
 
 ![Postman Collection](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/Collection-Postman.png)
+
+
