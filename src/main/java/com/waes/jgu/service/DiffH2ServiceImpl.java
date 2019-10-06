@@ -28,7 +28,6 @@ public class DiffH2ServiceImpl implements DiffService {
 	private DiffRepository repository;
 	
 	/**
-	 * @throws InvalidDataException, InmutableDataException 
 	 * @inheritDoc
 	 * 
 	 * Execute the operation against an in memory H2 DataBase

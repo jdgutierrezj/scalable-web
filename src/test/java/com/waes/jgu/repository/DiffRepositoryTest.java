@@ -1,4 +1,4 @@
-package com.waes.jgu.controller.repository;
+package com.waes.jgu.repository;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
