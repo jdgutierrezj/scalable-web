@@ -32,6 +32,20 @@ resource "aws_security_group" "allow_8080_22" {
 	  cidr_blocks = ["0.0.0.0/0"]
 	}
 	
+	egress {
+	  from_port   = 8080
+	  to_port     = 8080
+	  protocol    = "tcp"
+	  cidr_blocks = ["0.0.0.0/0"]
+	}
+	
+	egress {
+	  from_port   = 22
+	  to_port     = 22
+	  protocol    = "tcp"
+	  cidr_blocks = ["0.0.0.0/0"]
+	}
+	
 	tags = {
 	  Name = "allow_8080_22"
 	}
