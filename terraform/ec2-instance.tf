@@ -1,5 +1,6 @@
 data "aws_ami" "amazon-linux-2" {
 	most_recent = true
+	owners = ["amazon"]
 	
 	filter {
 	   name   = "owner-alias"
@@ -21,7 +22,7 @@ resource "aws_security_group" "allow_8080" {
 	  from_port   = 8080
 	  to_port     = 8080
 	  protocol    = "tcp"
-	  cidr_blocks = "0.0.0.0/0"
+	  cidr_blocks = ["0.0.0.0/0"]
 	}
 	
 	tags = {
