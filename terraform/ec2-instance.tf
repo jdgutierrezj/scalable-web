@@ -38,7 +38,7 @@ resource "aws_instance" "waes_jgu" {
 	user_data					= <<EOT
 									#!/bin/bash -x
 								   	yum update -y
-								   	yum install -y java-1.8.0-openjdk.x86_64 docker git
+								   	yum install -y java-1.8.0-openjdk.x86_64 apache-maven git
 								   	git clone https://github.com/jdgutierrezj/scalable-web.git
 								   	cd scalable-web
        							   	mvn clean install
