@@ -19,8 +19,14 @@ This is a REST API built with Spring Boot to solve the assignment for Java Devel
 ## How to build
 Clone the repository on your local machine
 
-    git clone https://github.com/jdgutierrezj/scalable-web
+    $ git clone https://github.com/jdgutierrezj/scalable-web
 
+Change into the ***scalable-web*** folder and build the project:
+
+    $ mvn clean install
+The executable jar will be located in this path:
+
+    $ scalable-web/target/scalable-web-1.0.0.jar
 
 ## How to execute 
 ### Local
@@ -78,5 +84,36 @@ Execute the next command to see the results:
     mvn test
 
 ### Curl
+**Some Scenarios:**
+
+*Send **valid** data to left side:*
+
+```
+curl -i --data \
+{"base64Data":"iVBORw0KGgoAAAANSUhEUgAABQAAAAPTCAYAAAGYmZTaAAAAAXNSR0IArs4=" }' \
+-H "Content-Type: application/json" -X POST http://localhost:8080/v1/diff/1/left
+```
+*Send **valid** data to right side:*
+
+```
+curl -i --data \
+{"base64Data":"iVBORw0KGgoAAAANSUhEUgAABQAAAAPTCAYAAAGYmZTaAAAAAXNSR0IArs4=" }' \
+-H "Content-Type: application/json" -X POST http://localhost:8080/v1/diff/1/right
+```
+*Getting differences:*
+```
+curl -i -H "Content-Type: application/json" -X GET http://localhost:8080/v1/diff/1
+```
+*Send **invalid** data to left side:*
+
+```
+curl -i --data \
+{"base64Content":"iVBORw0KGgoAAAANSUhEUgAABQAAAAPT $CAYAAAGYmZTaAAAAAXNSR0IArs4=" }' \
+-H "Content-Type: application/json" -X POST http://localhost:3000/v1/diff/1/right
+```
 
 ### Postman
+Inside the subfolder postman you will be find a Postman Collection to import and execute:
+
+![Postman Collection](https://github.com/jdgutierrezj/scalable-web/blob/master/postman/Collection-Postman.png)
+
