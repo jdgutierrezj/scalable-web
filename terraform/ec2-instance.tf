@@ -45,7 +45,7 @@ resource "aws_instance" "waes_jgu" {
 	associate_public_ip_address = true
 	instance_type               = "t2.micro"
 	vpc_security_group_ids      = ["${aws_security_group.allow_8080.id}"]
-	subnet_id                   = "${element(data.aws_subnet_ids.public.ids, count.index)}"
+	subnet_id                   = "${element(data.aws_subnet_ids.public.ids, 1)}"
 	user_data					= <<EOT
 									#!/bin/bash -x
 								   	yum update -y
