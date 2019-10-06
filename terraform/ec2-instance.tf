@@ -30,12 +30,22 @@ resource "aws_security_group" "allow_8080" {
 	}
 }
 
+resource "aws_default_vpc" "default" {
+  tags = {
+    Name = "Default VPC"
+  }
+}
+
+data "aws_subnet_ids" "public" {
+  vpc_id = "${aws_default_vpc.default.id}"
+}
+
 resource "aws_instance" "waes_jgu" {
 	ami                         = "${data.aws_ami.amazon-linux-2.id}"
 	associate_public_ip_address = true
 	instance_type               = "t2.micro"
 	vpc_security_group_ids      = ["${aws_security_group.allow_8080.id}"]
-	subnet_id                   = "${aws_subnet.test.id}"
+	subnet_id                   = "${element(data.aws_subnet_ids.public.ids, count.index)}"
 	user_data					= <<EOT
 									#!/bin/bash -x
 								   	yum update -y
