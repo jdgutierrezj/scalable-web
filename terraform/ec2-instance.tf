@@ -21,7 +21,7 @@ resource "aws_security_group" "allow_8080" {
 	  from_port   = 8080
 	  to_port     = 8080
 	  protocol    = "tcp"
-	  cidr_blocks = 0.0.0.0/0
+	  cidr_blocks = "0.0.0.0/0"
 	}
 	
 	tags = {
@@ -35,7 +35,7 @@ resource "aws_instance" "waes_jgu" {
 	instance_type               = "t2.micro"
 	vpc_security_group_ids      = ["${aws_security_group.allow_8080.id}"]
 	subnet_id                   = "${aws_subnet.test.id}"
-	user_data					= "<<EOT
+	user_data					= <<EOT
 									#!/bin/bash -x
 								   	yum update -y
 								   	yum install -y java-1.8.0-openjdk.x86_64 docker git
@@ -43,5 +43,5 @@ resource "aws_instance" "waes_jgu" {
 								   	cd scalable-web
        							   	mvn clean install
        							   	java -jar target/scalable-web-1.0.0.jar -Dspring.profiles.active=prod
-       							   EOT"
+       							   EOT
 }
