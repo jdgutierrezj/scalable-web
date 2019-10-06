@@ -14,8 +14,8 @@ data "aws_ami" "amazon-linux-2" {
 	}
 }
 
-resource "aws_security_group" "allow_8080_443" {
-	name        = "allow_8080_443"
+resource "aws_security_group" "allow_8080_22" {
+	name        = "allow_8080_22"
 	description = "Allow HTTP inbound traffic"
 
 	ingress {
@@ -26,14 +26,14 @@ resource "aws_security_group" "allow_8080_443" {
 	}
 	
 	ingress {
-	  from_port   = 443
-	  to_port     = 443
+	  from_port   = 22
+	  to_port     = 22
 	  protocol    = "tcp"
 	  cidr_blocks = ["0.0.0.0/0"]
 	}
 	
 	tags = {
-	  Name = "allow_8080_443"
+	  Name = "allow_8080_22"
 	}
 }
 
@@ -41,7 +41,7 @@ resource "aws_instance" "waes_jgu" {
 	ami                         = "${data.aws_ami.amazon-linux-2.id}"
 	associate_public_ip_address = true
 	instance_type               = "t2.micro"
-	vpc_security_group_ids      = ["${aws_security_group.allow_8080_443.id}"]
+	vpc_security_group_ids      = ["${aws_security_group.allow_8080_22.id}"]
 	key_name					= "jgu-keypair"
 	user_data					= <<EOT
 									#!/bin/bash -x
