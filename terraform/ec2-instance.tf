@@ -51,6 +51,6 @@ resource "aws_instance" "waes_jgu" {
        							   EOT
     
     tags = {
-    	Name = WaesServer
+    	Name = "WaesServer"
     }       							   
 }
