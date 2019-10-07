@@ -1,6 +1,6 @@
 # Scalable Web Assignment!
 
-This is a REST API built with Spring Boot to solve the assignment for Java Developer on WAES
+This is a REST API built with Spring Boot to solve the assignment for Java veloper on WAES
 ## Design
 According to the requirement, this API exposes 3 endpoints which are explained in the table below. I took these design decisions:
 
@@ -67,7 +67,7 @@ Set your environment variables with the next commands:
 	$ export AWS_SECRET_ACCESS_KEY="yoursecretkey"
 	$ export AWS_DEFAULT_REGION="us-east-1"
 	
-Change into the *terraform* subfolder and deploy de application to Amazon Web Services using the files *.tf provided with the next command:
+Change into the *terraform* subfolder and deploy the application to Amazon Web Services using the files *.tf provided with the next command:
 
     $ terraform init
     $ terraform plan
